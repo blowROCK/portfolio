@@ -1,55 +1,35 @@
 {
-  "name": "rootproject",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.babel.js",
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "3.2.0"
+  },
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build",
-    "release": "gulp release"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blowROCK/rootproject"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/blowROCK/rootproject/issues"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "homepage": "https://github.com/blowROCK/rootproject#readme",
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/register": "^7.6.2",
-    "babelify": "^10.0.0",
-    "browserify": "^16.5.0",
-    "browserslist": "^4.7.0",
-    "del": "^4.1.1",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-bro": "^1.0.3",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^3.0.1",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-if": "^3.0.0",
-    "gulp-image": "^4.4.1",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-strip-debug": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-webserver": "^0.9.1",
-    "merge-stream": "^2.0.0",
-    "node-sass": "^4.12.0",
-    "pngquant-bin": "^5.0.2",
-    "run-sequence": "^2.2.1",
-    "uglifyify": "^5.0.1"
-  },
-  "optionalDependencies": {
-    "fsevents": "*"
-  },
-  "browserslist": [
-    "last 2 version"
-  ]
+    "node-sass": "^4.13.0",
+    "typescript": "^3.6.4"
+  }
 }
