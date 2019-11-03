@@ -3,6 +3,11 @@
 import React, { Component } from "react";
 
 class Navigation extends Component {
+  shouldComponentUpdate(newProps, newState){
+    if(newProps.menu === this.props.menu)
+      return false;
+    return true;
+  }
   render() {
     return (
       <nav className="Navigation">
@@ -14,7 +19,7 @@ class Navigation extends Component {
                   e.preventDefault();
                   this.props.handler(item.name);
                 }.bind(this)}>
-                  {index + 1}. {item.name}
+                  {index + 1}. {item.name} 
                 </a>
               </li>
             );
@@ -22,6 +27,6 @@ class Navigation extends Component {
         </ul>
       </nav>
     );
-  }
-}
+  };
+};
 export default Navigation;
