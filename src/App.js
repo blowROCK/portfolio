@@ -90,7 +90,7 @@ class App extends Component {
       this._article = <CreateContents handler={this.handle_Contents_create}></CreateContents>;
     }
     return (
-      <div className="App">
+      <div className="App w-full">
         <Header></Header>
 
         <Navigation
