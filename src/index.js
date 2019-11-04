@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.sass';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './tailwind.css'
+import './thirdParty/tailwind.css'
+import Layout from './pages/Layout';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Layout />, document.getElementById('root'));
 serviceWorker.unregister();
