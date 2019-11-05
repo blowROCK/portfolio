@@ -24,3 +24,10 @@
 - 3일차 
     - FIGMA보다 좀 더 간편한 Adobe XD로 변경.
     - 코딩 시작
+- 4일차
+    - 지구 모양 잡는 방식에 방향전환이 많이 이루어짐
+        > IMG tag -> background -> threeJS -> canvas, mask, blur를 이용하는 것이 제일 좋은 방식 같다. codepen에서 테스팅해봄.
+    - React Hook을 배우자.
+        > 노마드코더 강의로 공부중
+    - 지구 만들고 코드 조금 손봄
+        > 이제부터 속도가 좀 날뜻.
