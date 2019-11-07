@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import Header from './../module/Header';
+import Space from './../module/Space';
+import Contents from './../module/Contents';
 
 class Section extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sectionList : {
-        Header : <Header></Header>
+        Space : <Space></Space>,
+        Contents : <Contents></Contents>
       }
     };
   }
   render() {
     let locationName = this.props.location;
+    console.log("TCL: Section -> render -> locationName", locationName)
     return (
       <section className={"section "+ locationName}>
         {this.state.sectionList[locationName]}

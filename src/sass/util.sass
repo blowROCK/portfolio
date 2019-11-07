@@ -1,0 +1,10 @@
+$tablet : 62em
+$mobile : 30em
+
+=media-md
+  @media (max-width: $tablet)
+    @content
+
+=media-xs
+  @media (max-width: $mobile)
+    @content

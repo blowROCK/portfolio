@@ -14,7 +14,8 @@ class Layout extends Component {
   render() {
       return(
         <div className='wrapper'>
-          <Section location="Header"></Section>
+          <Section location="Space"></Section>
+          <Section location="Contents"></Section>
         </div>
       );
   }
