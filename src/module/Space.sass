@@ -6,20 +6,39 @@
     height: 100%
     position: fixed
     overflow: hidden
+    .loading
+      #loading2
+        z-index: 5
+        opacity: 1
+        transition: opacity 2500ms 1500ms cubic-bezier(0.55, 0.055, 0.675, 0.19)
+        &.loaded
+          opacity: 0
     canvas
       position: absolute
       top: 0
       left: 0
       &#earth_L
         z-index: 0
+        opacity: 0
+        transition: 400
+        &.loaded
+          opacity: 1
       &#earth_B
         z-index: 1
+        opacity: 0
+        &.loaded
+          opacity: 1
       &#earth_C
         z-index: 2
+        opacity: 0
+        &.loaded
+          opacity: 1
       &#shading
         z-index: 3
-      &#Loading
-        z-index: 4
+        opacity: 0
+        transition: opacity 1500ms 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19)
+        &.loaded
+          opacity: 1
       &#milky
         width: 100%
         object-fit: cover
@@ -36,13 +55,12 @@
         left: 50%
         top: 0
         transform: translateX(-50%)
-
 +media-md
   .Space
     #space
       #earth
         canvas
-          width: 1200px
+          width: 1480px
 +media-xs
   .Space
     #space

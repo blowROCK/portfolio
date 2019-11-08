@@ -14,8 +14,23 @@ import "./Space.sass";
 
 class Space extends Component {
   constructor(props){
+    window.requestAnimFrame = (function() {
+      return (
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback, element) {
+          window.setTimeout(callback, this.state.second / this.state.tick);
+        }
+      );
+    })();
     super(props);
+    // this
+    this.loadHandler = this.props.loadHandler.bind(this);
     this.onScroll = this.onScroll.bind(this);
+    this.animate = this.animate.bind(this);
     this.resource = {
       earth_B : [mask_B, earth_B],
       earth_L : [mask_L, earth_L],
@@ -25,14 +40,21 @@ class Space extends Component {
       galaxy_2 : galaxy_2
     };
     this.state = {
-      canvas_width: 1800,
-      canvas_height: 1800,
-      earth_width : 1200, 
-      earth_height : 1200,
-      earth_ground : 3600,
+      canvas_width: 1500,
+      canvas_height: 1500,
+      earth_width : 1000, 
+      earth_height : 1000,
+      earth_ground : 4000,
       TickLate : 24,
+      second : 1000,
       earthExtraSize : 500,
-      spaceExtraSize : 1000
+      spaceExtraSize : 1000,
+      x : {
+        L : -500,
+        B : -500,
+        C : -500
+      },
+      loaded: this.props.loaded
     };
     this.SPACE = {
     };
@@ -55,7 +77,8 @@ class Space extends Component {
     this.SPACE.ctx_C = this.refs.earth_C.getContext("2d");
     this.SPACE.ctx_back = this.refs.milky.getContext("2d");
     this.SPACE.shading = this.refs.shading.getContext("2d");
-    this.SPACE.Loading = this.refs.Loading.getContext("2d");
+    this.SPACE.loading2 = this.refs.loading2.getContext("2d");
+
     this.drawImageCanvas(
       'b_space',
       this.resource.milkyway,
@@ -89,9 +112,13 @@ class Space extends Component {
     }).then(()=>{
       return this.drawShading()
     }).then(()=>{
-      console.log("끗");
-      console.log("TCL: Header -> newImg.onload -> this.SPACE", this.SPACE)
-      this.initAniamtion();
+      console.log("로딩 끝");
+      setTimeout(()=>{
+        this.loadHandler(true);
+        this.startAnimate();
+        console.log("TCL: Space -> setupCanvas -> this.state.loaded", this.state.loaded)
+        console.log("TCL: Space -> setupCanvas -> this.props.loaded", this.props.loaded)
+      },200)
     })
   }
   drawArc(ctx, x, y, size){
@@ -111,9 +138,13 @@ class Space extends Component {
   }
   drawShading(){
     let CTX_SHADING = this.SPACE.shading;
+    let CTX_LOADING2 = this.SPACE.loading2;
     let CENTER_X = this.getX('center');
     let CENTER_Y = this.getY('center');
     let EARTH_SIZE = this.state.earth_height/2;
+
+
+    // 외곽 glow
     this.drawArc(
       CTX_SHADING,
       CENTER_X,
@@ -128,8 +159,9 @@ class Space extends Component {
       x: CENTER_X,
       y: CENTER_Y,
       size: EARTH_SIZE + 55
-    }, [[0, 'transparent'], [0.0001, 'rgba(33, 84, 150, 0.8)'], [1, 'transparent']])
+    }, [[0, 'transparent'], [0.3, 'rgba(33, 84, 150, 0.8)'], [1, 'transparent']])
     
+    // 내부 glow
     this.drawArc(
       CTX_SHADING,
       CENTER_X,
@@ -146,6 +178,7 @@ class Space extends Component {
       size: EARTH_SIZE
     }, [[0, 'transparent'], [0.0001, 'rgba(60, 105, 175, 0.01)'], [1, 'rgba(60, 105, 175, 0.4)']])
 
+    // 태양 빛
     this.drawArc(
       CTX_SHADING,
       CENTER_X,
@@ -161,37 +194,52 @@ class Space extends Component {
       y: CENTER_Y,
       size: EARTH_SIZE
     }, [[0, 'rgba(255, 255, 255, 0.5)'], [1, 'transparent']])
+    
+    this.drawArc(
+      CTX_LOADING2,
+      CENTER_X,
+      CENTER_Y,
+      EARTH_SIZE+10,
+    )
+    this.drawRGradient(CTX_LOADING2, {
+      x: CENTER_X+CENTER_X/2,
+      y: CENTER_Y-CENTER_Y/2,
+      size: 0
+    }, {
+      x: CENTER_X,
+      y: CENTER_Y,
+      size: EARTH_SIZE
+    }, [[0, 'rgba(0,0,0,0.85)'], [0.5, 'rgba(0,0,0,0.95)'], [1, 'rgba(0,0,0,1)']])
+
   }
-  initAniamtion(){
-    let tick = this.state.TickLate;
-    let count = 0;
-    let x = {
-      L : 0,
-      B : 0,
-      C : 0
+  animate(){
+    let X = this.state.x;
+    this.SPACE.ctx_L.drawImage(this.SPACE.b_light.img, X.L, this.getY('LAND'), this.state.earth_ground, this.state.earth_height)
+    this.SPACE.ctx_B.drawImage(this.SPACE.b_black.img, X.B, this.getY('LAND'), this.state.earth_ground, this.state.earth_height)
+    
+    this.SPACE.ctx_C.globalCompositeOperation = 'source-over';
+    this.SPACE.ctx_C.clearRect(0, 0, this.state.canvas_width, this.state.canvas_height);
+    this.SPACE.ctx_C.drawImage(this.SPACE.b_cloud.mask, this.getX(), this.getY(), this.state.earth_width, this.state.earth_height);
+    this.SPACE.ctx_C.globalCompositeOperation = 'source-in';
+    this.SPACE.ctx_C.drawImage(this.SPACE.b_cloud.img, X.C, this.getY('LAND'), this.state.earth_ground, this.state.earth_height)
+
+    for (const key in X) {
+      if(X[key] < -(this.state.earth_ground/2)){
+        X[key] = 0;
+      }
     }
-    this.interval = setInterval(()=>{
-      x.L -= 0.05;
-      x.B -= 0.05;
-      x.C -= 0.1;
-      for (const key in x) {
-        if(x[key] < -(this.state.earth_ground/2)){
-          x[key] = 0;
-        }
+    this.setState({
+      x : {
+        L : X.L - 0.05,
+        B : X.B - 0.05,
+        C : X.C - 0.1
       }
-      this.SPACE.ctx_L.drawImage(this.SPACE.b_light.img, x.L, this.getY(), this.state.earth_ground, this.state.earth_height)
-      this.SPACE.ctx_B.drawImage(this.SPACE.b_black.img, x.B, this.getY(), this.state.earth_ground, this.state.earth_height)
-      
-      this.SPACE.ctx_C.globalCompositeOperation = 'source-over';
-      this.SPACE.ctx_C.clearRect(0, 0, this.state.canvas_width, this.state.canvas_height);
-      this.SPACE.ctx_C.drawImage(this.SPACE.b_cloud.mask, this.getX(), this.getY(), this.state.earth_width, this.state.earth_height);
-      this.SPACE.ctx_C.globalCompositeOperation = 'source-in';
-      this.SPACE.ctx_C.drawImage(this.SPACE.b_cloud.img, x.C, this.getY(), this.state.earth_ground, this.state.earth_height)
-      count++;
-      if(count > 5000){
-        // this.stopAnimation();
-      }
-    }, tick/1000)
+    })
+    requestAnimationFrame(this.animate)
+  }
+  startAnimate(){
+    this.animate();
+    this.setState({loaded:true})
   }
   stopAnimation(){
     clearInterval(this.interval);
@@ -204,6 +252,9 @@ class Space extends Component {
   getY(posi){
     if(posi === 'center')
       return -(this.state.earth_height/3) + this.state.earth_height/2;
+    else if(posi === 'LAND')
+      return -(this.state.earth_height/4)
+      
     return -(this.state.earth_height/3);
   }
   drawImageCanvas(imgName, imgSrc, ctx, x = 0, y = 0){
@@ -246,16 +297,22 @@ class Space extends Component {
   }
   render() {
     return (
-      <div className="space" id="space">
-        <canvas id="milky" ref="milky" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
-        <div id="earth">
-          <canvas id="Loading" ref="Loading" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
-          <canvas id="earth_B" ref="earth_B" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
-          <canvas id="earth_L" ref="earth_L" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
-          <canvas id="earth_C" ref="earth_C" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
-          <canvas id="shading" ref="shading" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+      
+      <section className={"section Space"}>
+        <div className="space" id="space">
+          <canvas id="milky" ref="milky" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+          <p>{this.state.loaded}</p>
+          <div id="earth">
+            <div className="loading">
+              <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="loading2" ref="loading2" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+            </div>
+            <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="earth_B" ref="earth_B" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+            <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="earth_L" ref="earth_L" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+            <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="earth_C" ref="earth_C" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+            <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="shading" ref="shading" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }
