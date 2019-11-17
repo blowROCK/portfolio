@@ -2,6 +2,16 @@
 
 /* Document
    ========================================================================== */
+.wf-container:before,.wf-container:after {
+  content: '';
+  display: table;
+}
+.wf-container:after {
+  clear: both;
+}
+.wf-column {
+  float: left;
+}
 
 /**
  * 1. Correct the line height in all browsers.
@@ -4604,7 +4614,9 @@ video {
 .ml-32 {
   margin-left: 8rem;
 }
-
+.mt-36 {
+  margin-top: 9rem;
+}
 .mt-40 {
   margin-top: 10rem;
 }
@@ -9724,7 +9736,9 @@ video {
 .w-px {
   width: 1px;
 }
-
+.w-100rem{
+  width: 100rem;
+}
 .w-1\/2 {
   width: 50%;
 }
@@ -18971,7 +18985,9 @@ video {
   .sm\:w-px {
     width: 1px;
   }
-
+  .sm\:w-100rem{
+    width: 100rem;
+  }
   .sm\:w-1\/2 {
     width: 50%;
   }
@@ -28219,7 +28235,9 @@ video {
   .md\:w-px {
     width: 1px;
   }
-
+  .md\:w-100rem {
+    width: 100rem;
+  }
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -37466,6 +37484,10 @@ video {
 
   .lg\:w-px {
     width: 1px;
+  }
+
+  .lg\:w-100rem {
+    width: 100rem;
   }
 
   .lg\:w-1\/2 {
@@ -46715,7 +46737,9 @@ video {
   .xl\:w-px {
     width: 1px;
   }
-
+  .xl\:w-100rem {
+    width: 100rem;
+  }
   .xl\:w-1\/2 {
     width: 50%;
   }

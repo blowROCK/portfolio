@@ -1,0 +1,143 @@
+@import "./../sass/util.sass"
+
+@keyframes scroll
+  0%  
+    opacity: 0
+  10%  
+    transform: translateY(0)
+    opacity: 1
+  100%  
+    transform: translateY(15px)
+    opacity: 0
+  
+.contents
+  section:not(:first-child)
+    &::before
+      content: ''
+      width: 2px
+      height: 8rem
+      background: #afafaf
+      position: absolute
+      left: 50%
+      top: 0
+      transform: translateX(-50%)
+  section#main
+    width: 100vw
+    height: 85vh
+    max-width: 100%
+    .logo
+      transition: opacity 2.5s 3s ease-in-out
+      filter: drop-shadow(rgba(255, 255, 255, 0.5) 0px 0px 10px)
+  section#about
+    margin-top: 100vh
+    .rocketman
+      width: 22rem
+    .mouse-container
+      transition: all 1s 5s ease-in-out
+      left: 50%
+      bottom: 5rem
+      transform: translateX(-50%)
+      top: -15vh
+      .mouse
+        background: rgba(0,0,0,0.5)
+        overflow: hidden
+        width: 3px
+        padding: 10px 15px
+        height: 35px
+        border: 2px solid #fff
+        border-radius: 25px
+        opacity: 0.75
+        box-sizing: content-box
+        .scroll
+          width: 3px
+          height: 10px
+          border-radius: 25%
+          background-color: #fff
+          animation-name: scroll
+          animation-duration: 2.2s
+          animation-timing-function: cubic-bezier(.15,.41,.69,.94)
+          animation-iteration-count: infinite
+    .content
+      p
+        letter-spacing: 0.15rem
+        word-break: keep-all
+    
+.wrapper.contents
+  .tran106
+    transition: all 1s 0.6s ease-in-out
+  .tran254
+    transition: all 2.5s 4s ease-in-out
+  .load_opa
+    opacity: 0
+  &.loaded
+    .load_opa
+      opacity: 1  
+    .load_letter_1
+      letter-spacing: 1rem
+      margin-right: -1rem
+    .load_letter_5
+      letter-spacing: 5rem
+      margin-right: -5rem
+  section
+    .active_opa
+      opacity: 1  
+    &.active 
+      .active_letter_05
+        letter-spacing: 0.5rem
+        margin-right: -0.5rem
+      .active_letter_1
+        letter-spacing: 1rem
+        margin-right: -1rem
+      .active_letter_2
+        letter-spacing: 2rem
+        margin-right: -2rem
+      .active_letter_3
+        letter-spacing: 3rem
+        margin-right: -3rem
+      .active_etter_5
+        letter-spacing: 5rem
+        margin-right: -5rem
+
+.more
+  position: relative
+  top: 45px
+  a
+    span
+      font-size: 2rem
+      z-index: 1
+      position: absolute
+      color: white
+      left: 50%
+      transform: translate(-50%, -50%)
+      top: 50%
+    svg
+      position: absolute
+      color: white
+      left: 50%
+      transform: translate(-50%, -50%)
+      top: 50%
+      polygon
+        stroke: #fff
+        stroke-width: 5
+        fill: rgba(0,0,0,0.4)
+
+
+#footer
+  .logo
+    margin: 0 auto 5rem auto
+    filter: drop-shadow(rgba(255, 77, 90, 0.7) 0px 0px 30px)
++media-md
+  .contents
+    section#main
+      .title
+        font-size: 3.2rem
+        letter-spacing: 0.5rem
+        margin-right: -0.5rem
+        
++media-xs
+  .contents
+    section#main
+      .title
+        font-size: 2.5rem
+        letter-spacing: 0.3rem
+        margin-right: -0.3rem

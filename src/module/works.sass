@@ -1,0 +1,87 @@
+@import "./../sass/util.sass"
+
+  
+@function randomNum($min, $max)
+  $rand: random()
+  $randomNum: $min + floor($rand * (($max - $min) + 1))
+  @return $randomNum
+
+
+
+.work-container
+  @each $obj in edu, code, play, admin, omug, inno
+    #box_#{$obj}
+      img
+        transition: transform 100ms ease-in-out
+        will-change: transform
+        &:nth-child(1)
+          margin: auto
+          width: calc(#{randomNum(75, 82)} * 1%)
+        &:nth-child(2)
+          position: absolute
+          opacity: 0.95
+          width: calc(#{randomNum(32, 40)} * 1%)
+          left: calc(#{randomNum(-2, 2)} * 1%)
+          top: calc(#{randomNum(0, 20)} * 1%)
+        &:nth-child(3)
+          position: absolute
+          opacity: 0.95
+          width: calc(#{randomNum(32, 40)} * 1%)
+          right: calc(#{randomNum(-2, 3)} * 1%)
+          top: calc(#{randomNum(45, 65)} * 1%)
+ul
+  li.social
+    top: 0
+    a
+      display: block
+      width: 75px
+      height: 75px
+  
+
++media-min-sm
+  .work-container
+    @each $obj in edu, code, play, admin, omug, inno
+      #box_#{$obj}
+        img
+          &:nth-child(1)
+            width: calc(#{randomNum(80, 95)} * 1%)
+          &:nth-child(2)
+            width: calc(#{randomNum(28, 45)} * 1%)
+            left: calc(-#{randomNum(0, 2)} * 1%)
+            top: calc(#{randomNum(0, 20)} * 1%)
+          &:nth-child(3)
+            width: calc(#{randomNum(28, 45)} * 1%)
+            right: calc(-#{randomNum(0, 1)} * 1%)
+            top: calc(#{randomNum(45, 65)} * 1%)
+
++media-min-md
+  .work-container
+    @each $obj in edu, code, play, admin, omug, inno
+      #box_#{$obj}
+        img
+          &:nth-child(1)
+            width: calc(#{randomNum(80, 95)} * 1%)
+          &:nth-child(2)
+            width: calc(#{randomNum(28, 45)} * 1%)
+            left: calc(-#{randomNum(1, 15)} * 1%)
+            top: calc(#{randomNum(0, 20)} * 1%)
+          &:nth-child(3)
+            width: calc(#{randomNum(28, 45)} * 1%)
+            right: calc(-#{randomNum(0, 5)} * 1%)
+            top: calc(#{randomNum(45, 65)} * 1%)
+
++media-min-lg
+  .work-container
+    .work
+      &:nth-child(2n)
+        flex-flow: row-reverse
+        .text-container
+          text-align: left
+          .subTitle
+            padding-left: 0
+            padding-right: 5rem
+          .mainTitle
+            float: left
+            
+        
+        

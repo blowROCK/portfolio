@@ -297,11 +297,9 @@ class Space extends Component {
   }
   render() {
     return (
-      
-      <section className={"section Space"}>
-        <div className="space" id="space">
+      <div className={"wrapper Space"}>
+        <div id="space-wrapper">
           <canvas id="milky" ref="milky" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
-          <p>{this.state.loaded}</p>
           <div id="earth">
             <div className="loading">
               <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="loading2" ref="loading2" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
@@ -312,7 +310,7 @@ class Space extends Component {
             <canvas className={this.state.loaded===true ? 'loaded' : 'load'} id="shading" ref="shading" width={this.state.canvas_width+"px"} height={this.state.canvas_height+"px"}></canvas>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }

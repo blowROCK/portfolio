@@ -1,5 +1,5 @@
-$tablet : 62em
-$mobile : 30em
+$tablet : 768px
+$mobile : 640px
 
 =media-md
   @media (max-width: $tablet)
@@ -7,4 +7,17 @@ $mobile : 30em
 
 =media-xs
   @media (max-width: $mobile)
+    @content
+
+//640 이상일때
+=media-min-sm
+  @media (min-width: 640px)
+    @content
+
+=media-min-md
+  @media (min-width: 768px)
+    @content
+    
+=media-min-lg
+  @media (min-width: 1024px)
     @content

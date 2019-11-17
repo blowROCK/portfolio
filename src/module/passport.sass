@@ -1,0 +1,409 @@
+// $ticket-color : rgba(255,255,255,0.8)
+// $tomb-color : rgba(255,255,255,0.8)
+// $double-color : rgba(255,255,255,0.8)
+// $dashed-color : rgba(255,255,255,0.8)
+// $round-color : rgba(255,255,255,0.8)
+$stamp-border-color: rgba(255,255,255,0.8)
+$stamp-color : #ffffff
+
+
+.stampBox
+  background: rgba(72, 87, 150, 0.2)
+  margin-bottom: 2rem
+  padding: 4rem 1.2rem 1.2rem 1.2rem
+  position: relative
+  .stamHead
+    background: rgba(61, 80, 156, 0.26)
+    padding: 0.2rem 2rem
+    letter-spacing: 0.2rem
+    text-transform: uppercase
+    position: absolute
+    left: 0
+    top: 0
+
+    
+.stamp-container
+  .stamp
+    // background: $main-color
+    position: relative
+    color: #555
+    font-size: 2rem
+    font-weight: 700
+    border: 0.25rem solid #555
+    display: inline-block
+    padding: 0.25rem 1rem
+    border-radius: 1rem
+    font-family: 'Courier'
+    // -webkit-mask-image: url(./../assets/img/logos/grunge.png)
+    // -webkit-mask-size: 300px 200px
+    .type
+      font-size: 1.3rem
+    .iconBox
+      min-width: 2rem
+      font-weight: normal
+    .name
+      text-transform: uppercase
+      letter-spacing: 2px
+    &.iconBox
+  &.tomb
+    .stamp
+      color: $stamp-color
+      border: 0.2rem solid $stamp-border-color
+      font-size: 2rem
+      min-height: 170px
+      border-top-right-radius: 4rem
+      border-top-left-radius: 4rem
+      &::before
+        content: '\f197'
+        font-family: "Font Awesome 5 Pro"
+        position: absolute
+        top: 0.8rem
+        left: 50%
+        transform: translateX(-50%) rotate(-90deg)
+        font-size: 1.6rem
+      &::after
+        content: ''
+        width: calc( 100% - 0.9rem)
+        height: calc( 100% - 0.9rem)
+        border: 0.2rem dashed $stamp-border-color
+        position: absolute
+        left: 0.45rem
+        top: 0.45rem
+        border-top-right-radius: 3.2rem
+        border-top-left-radius: 3.2rem
+        border-bottom-left-radius: 0.6rem
+        border-bottom-right-radius: 0.6rem
+      .name
+        display: block
+        margin: 3.2rem auto 0
+        text-align: center
+        border-bottom: 0.1rem solid $stamp-border-color
+        line-height: 1.5rem
+        &::after
+          content: '★'
+          position: absolute
+          top: 2.5rem
+          right: calc(50% - 2rem)
+          transform: translateY(-50%)
+          font-size: 1.2rem
+        &::before
+          content: '★'
+          position: absolute
+          top: 2.5rem
+          left: calc(50% - 2rem)
+          transform: translateY(-50%)
+          font-size: 1.2rem
+      .iconBox
+        position: absolute
+        bottom: 1rem
+        right: 1rem
+        width: auto
+        text-align: center
+        font-size: 1.8rem
+        border: 0.2rem solid $stamp-color
+        border-radius: 999px
+        height: 3rem
+        width: 3rem
+        .icon
+          line-height: 3rem
+      .type
+        position: absolute
+        width: 40%
+        display: block
+        top: 57%
+        transform: translate(-50%, -50%)
+        left: 50%
+        text-align: center
+        text-transform: lowercase
+        border-bottom: 0.1rem solid $stamp-border-color
+        line-height: 1.2rem
+        &::after
+          content: '-ICN-'
+          position: absolute
+          left: 0
+          top: 1.3rem
+          width: 100%
+          text-transform: uppercase
+        &::before
+          content: '23.01.1989'
+          position: absolute
+          top: 2.7rem
+          right: 0rem
+          font-size: 1.3rem
+  &.double    
+    .stamp
+      color: $stamp-color
+      border: 0.5rem double $stamp-border-color
+      -webkit-mask-position: 2rem 3rem
+      font-size: 2rem
+      padding: 0
+      &::after
+        content: 'ARRIVAL'
+        position: absolute
+        top: 0.2rem
+        left: 65%
+        transform: translateX(-50%)
+        font-size: 1.5rem
+      .type
+        position: absolute
+        left: 0
+        top: 0.3rem
+        transform: rotate(-23deg)
+      .name
+        font-size: 1.8rem
+        margin: 3rem 0 3.2rem
+        width: 100%
+        text-align: center
+        display: block
+        border-bottom: 0.2rem dashed $stamp-border-color
+        border-top: 0.2rem dashed $stamp-border-color
+        &::before
+          content: '\f3ff'
+          font-family: "Font Awesome 5 Pro"   
+          margin-right: 0.25rem
+          font-size: 1rem
+        &::after
+          content: 'immigration officer'
+          text-transform: uppercase
+          font-size: 0.8rem
+          position: absolute
+          bottom: 0.5rem
+          left: 5%
+          width: 100%
+          text-align: left
+          letter-spacing: 1px
+      .iconBox
+        position: absolute
+        right: 3%
+        bottom: 0rem
+  &.dashed
+    .stamp
+      color: $stamp-color
+      border: 0.25rem dashed $stamp-border-color
+      -webkit-mask-position: 2rem 3rem
+      font-size: 2rem
+      border-radius: 0
+      text-align: center
+      padding: 0 2rem 0 0
+      .type
+        font-size: 1.5rem
+        position: relative
+        &::before
+          content: '\f072'
+          font-family: "Font Awesome 5 Pro"
+          transform: rotate(-90deg)
+          position: absolute
+          left: -2.3rem
+          bottom: -0.1rem
+          // color: $dashed
+          border-radius: 100%
+          height: 1.95rem
+          width: 1.95rem
+          font-size: 1.2rem
+          border: 0.1rem solid $stamp-border-color
+        &::after
+          content: '\f072'
+          font-family: "Font Awesome 5 Pro"
+          transform: rotate(-90deg)
+          position: absolute
+          right: -2.3rem
+          bottom: -0.1rem
+          // color: $dashed
+          border-radius: 100%
+          height: 1.95rem
+          width: 1.95rem
+          font-size: 1.2rem
+          border: 0.1rem solid $stamp-border-color
+      .name
+        border-top: 0.2rem solid $stamp-border-color
+        padding-bottom: 2.5rem
+        display: block
+      .iconBox
+        position: absolute
+        bottom: 0
+        left: 1rem
+        transform: none !important
+        &::after
+          content: 'DEPARTURE'
+          font-size: 1.2rem
+          position: absolute
+          left: 150%
+          top: 15%
+      &::before
+        content: '11/01/2019'
+        position: absolute
+        right: 13px
+        top: 5%
+        font-size: 1rem
+        transform: rotate(-90deg)
+        transform-origin: right
+        letter-spacing: 0
+      &::after
+        content: ""
+        position: absolute
+        right: 0
+        top: 0
+        height: 100%
+        width: 2rem
+        border-left: 0.25rem dashed $stamp-border-color
+  &.round
+    .stamp
+      color: $stamp-color
+      border: 0.1rem solid $stamp-border-color
+      font-size: 2rem
+      text-align: center
+      border-radius: 100%
+      text-align: center
+      height: 100%
+      padding: 0
+      &::after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        border: 0.2rem dashed $stamp-border-color
+        width: calc(100% + 0.5rem)
+        height: calc(100% + 0.5rem)
+        border-radius: 100%
+      .name
+        position: absolute
+        top: 0.9rem
+        left: 50%
+        transform: translateX(-50%)
+        font-size: 1.7rem
+        letter-spacing: 0px
+      .type
+        margin-top: 3.5rem
+        display: block
+        background: $stamp-border-color
+        border-radius: 2rem
+        color: black
+        font-size: 1.5rem
+        width: 80% 
+        position: relative
+        text-align: center
+        margin-left: 10%
+        padding-left: 10%
+        &::before
+          content: ''
+          position: absolute
+          left: -0.75rem
+          bottom: 0.4rem
+          width: calc(100% + 1.5rem)
+          top: -0.5rem
+          height: 2px
+          border-bottom: 0.2rem solid $stamp-border-color
+        &::after
+          content: '\f13d'
+          font-family: "Font Awesome 5 Pro"
+          position: absolute
+          top: 0
+          left: 0.4rem
+      .iconBox
+        position: relative
+        &::after
+          content: '}-'
+          color: $stamp-border-color
+        &::before
+          content: '-{'
+          color: $stamp-border-color
+  &.ticket
+    .stamp
+      min-height: 9.2rem
+      color: $stamp-color
+      border: 0.15rem solid $stamp-border-color
+      -webkit-mask-position: 2rem 3rem
+      font-size: 2rem
+      border-radius: 0
+      text-align: center
+      padding: 0 2rem 0 0
+      width: 100%
+      padding: 0 10%
+      position: relative
+      height: 100%
+      &::after
+        content: ''
+        position: absolute
+        left: -0.4rem
+        width: 2rem
+        height: 2rem
+        top: -0.4rem
+        border-left: 0.2rem dashed $stamp-border-color
+        border-top: 0.2rem dashed $stamp-border-color
+      &::before
+        content: ''
+        position: absolute
+        right: -0.4rem
+        width: 2rem
+        height: 2rem
+        bottom: -0.4rem
+        border-right: 0.2rem dashed $stamp-border-color
+        border-bottom: 0.2rem dashed $stamp-border-color
+      .type
+        display: block
+        padding-top: 0.2rem
+        font-size: 1rem
+        margin-top: 2.4rem
+        &::after
+          content: '< 23 JAN 1989 >'
+          position: absolute
+          bottom: 0.2rem
+          left: 50%
+          transform: translateX(-50%)
+          width: 100%
+      .name
+        display: block
+        width: 100%
+        border-top: 2px solid $stamp-border-color
+        border-bottom: 2px solid $stamp-border-color
+        line-height: 2.5rem
+        position: relative
+        &::after
+          content: '\f012'
+          font-family: "Font Awesome 5 Pro"
+          position: absolute
+          top: -0.07rem
+          right: -1.5rem
+          transform: scaleX(-1) rotate(-90deg)
+          font-size: 1.2rem
+        &::before
+          content: '\f012'
+          font-family: "Font Awesome 5 Pro"
+          position: absolute
+          top: -0.07rem
+          left: -1.5rem
+          transform: rotate(-90deg)
+          font-size: 1.2rem
+      .iconBox
+        position: absolute
+        top: 0
+        left: 0
+        transform: none !important
+        display: block
+        width: 100%
+        margin: auto
+        &::after
+          content: ''
+          position: absolute
+          width: 5rem
+          height: 1.3rem
+          top: 30%
+          left: 0.5rem
+          border-top: 0.2rem solid $stamp-border-color
+          border-bottom: 0.2rem solid $stamp-border-color
+          border-bottom-left-radius: 100%
+        &::before
+          content: ''
+          position: absolute
+          width: 5rem
+          height: 1.3rem
+          top: 30%
+          right: 0.5rem
+          border-top: 0.2rem solid $stamp-border-color
+          border-bottom: 0.2rem solid $stamp-border-color
+          border-bottom-right-radius: 100%
+        .icon
+          top: 5px
+          position: relative
+          
