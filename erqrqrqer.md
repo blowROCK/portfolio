@@ -14,6 +14,11 @@ WORKS
 하이브리드앱(오머그), 이노앱
 클릭하면 -> 팝업
 
+C
+Cpp
+Java
+JavaScript(Node.js env)
+Python
 
 Skill 목록
     HTML, Canvas, SVG, PUG, CSS, SASS
@@ -23,3 +28,5 @@ Skill 목록
     AWS s3, AWS EC2, AWS SES, Git Page
     Github, Bitbucket, SourceTree
     Firebase, mongoDB, Mongoose
+
+    

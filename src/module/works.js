@@ -4,6 +4,8 @@
 import React, { PureComponent } from "react";
 import SVG from "./../module/svg";
 import "./works.sass";
+import Modal from './../module/modal';
+import ModalPortal from './../module/modalPortal';
 
 class Works extends PureComponent {
   constructor(props) {
@@ -14,10 +16,11 @@ class Works extends PureComponent {
       imgs: [
         {
           edu: {
+            key: 'edu',
             subTitle: "CODING EDUCATION",
             title: "코딩 강좌 사이트",
             skill:
-              "gulp, babel, npm,\nPug, SASS, AngularJS,\nNodeJS, AWS, MongoDB",
+              "gulp, babel, npm, Pug, SASS, AngularJS, NodeJS, AWS, MongoDB",
             content:
               "Google blockly를 이용한 블록코딩 개발\nSVG와 Canvas를 이용한 코딩 게임 개발\n블록을 Javascript로 변환하는 번역기 개발\n변환된 코드를 JS 인터프리터를 통해 실행하여\n게임 내에 Animation을 실행하는 게임 개발\ncompile-run를 이용해 실행되어 결과 값이 리턴되는 컴파일러 개발\n컴파일러를 이용한 JAVA, C, Cpp, Python, Javascript용 코딩 게임개발\n회원가입, 비밀번호, 메일링, 진도상황체크 등",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
@@ -45,10 +48,11 @@ class Works extends PureComponent {
         },
         {
           code: {
+            key: 'code',
             title: "프렌차이즈 학원용 코딩 사이트",
             subTitle: "Block Coding",
             skill:
-              "gulp, babel, npm,\nPug, SASS, AngularJS, Jquery,\nNodeJS, AWS, MongoDB, 반응형, 웹표준",
+              "gulp, babel, npm, Pug, SASS, AngularJS, Jquery, NodeJS, AWS, MongoDB, 반응형, 웹표준",
             content:
               "Google blockly를 이용한 블록코딩 개발\nSVG와 Canvas를 이용한 코딩 게임 개발\nAWS s3를 이용한 클라우드서비스,\n회원가입, 권한 관리, 진도상황체크 등 개발",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
@@ -68,10 +72,11 @@ class Works extends PureComponent {
         },
         {
           play: {
+            key: 'play',
             title: "프렌차이즈 회사 홈페이지",
             subTitle: "franchise site",
             skill:
-              "gulp, babel, npm,\nPug, SASS, AngularJS, Jquery,\nNodeJS, AWS, MongoDB,\n반응형, 웹표준",
+              "gulp, babel, npm, Pug, SASS, AngularJS, Jquery, NodeJS, AWS, MongoDB, 반응형, 웹표준",
             content:
               "다양한 애니메이션, KakaoMap을 이용한 지점 소개\n글작성, 지점 업로드",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
@@ -90,10 +95,11 @@ class Works extends PureComponent {
         },
         {
           admin: {
+            key: 'admin',
             title: "코딩 사이트, 회사 사이트\n통합 어드민",
             subTitle: "ADMIN PAGE",
             skill:
-              "gulp, babel, npm,\nPug, SASS, AngularJS, Jquery,\nNodeJS, AWS, MongoDB,\n반응형, 웹표준",
+              "gulp, babel, npm, Pug, SASS, AngularJS, Jquery, NodeJS, AWS, MongoDB, 반응형, 웹표준",
             content:
               "모든 회원 관리, 모든 지점 관리, 수업관리,\n슬라이드변경, 업로드 글쓰기 등\n모든 업무 총괄 어드민 페이지",
             role: "웹디자인(50%), 프론트엔드(90%), 백엔드(100%)",
@@ -103,10 +109,11 @@ class Works extends PureComponent {
         },
         {
           omug: {
+            key: 'omug',
             title: "SNS스타일 카페소개\n하이브리드 APP",
             subTitle: "Hybrid Ionic App",
             skill:
-              "HTML, SASS,  Javascript, Angular\nIonic, Firebase, Beacon, BLE,\n반응형, 웹표준",
+              "HTML, SASS,  Javascript, Angular, Ionic, Firebase, Beacon, BLE, 반응형, 웹표준",
             content:
               "2016.09 ~ 2016.11\nIonic을 이용한 Hybrid App 개발\n비콘을 통해 실시간으로 사용자가 업체에 방문 정보를 받게 개발\nFireBase를 통해 사용자, 업주간 실시간 채팅 등 개발",
             role: "디자인(100%), 프론트엔드(100%)",
@@ -116,17 +123,21 @@ class Works extends PureComponent {
         },
         {
           inno: {
+            key: 'inno',
             title: "회사 홈페이지",
             subTitle: "Company homepage",
             skill:
-              "HTML, CSS, Javascript, Jqueary, PHP,\ngulp, git, npm,\nbootstrap, slick, 반응형, 웹표준",
+              "HTML, CSS, Javascript, Jqueary, PHP, gulp, git, npm, bootstrap, slick, 반응형, 웹표준",
             content: "2017.03 ~ 2017.04\nWordPress 기반 홈페이지",
             role: "디자인(100%), 프론트엔드(100%)",
             url: "-",
             imgs: ["inno-1.png", "inno-2.png", "inno-3.png", "inno-4.png"]
           }
         }
-      ]
+      ],
+      modal: false,
+      value: '',
+      key: ''
     };
   }
   componentDidMount() {
@@ -152,6 +163,20 @@ class Works extends PureComponent {
       }
     });
   }
+  handleOpenModal = (value, key) => {
+    this.setState({
+      modal: true,
+      value: value[key]
+    });
+    document.body.classList.add("overflow-hidden");
+  };
+  handleCloseModal = () => {
+    this.setState({
+      modal: false,
+      value: ''
+    });
+    document.body.classList.remove('overflow-hidden');
+  };
   render() {
     return (
       // sm:w-1/2 md:w-1/3 lg:w-1/2 xl:w-1/6
@@ -196,8 +221,8 @@ class Works extends PureComponent {
                 <div className="content mb-4 leading-relaxed">
                   <p className="whitespace-pre-wrap word-keepAll">{work.content}</p>
                 </div>
-                <div className="more mb-4">
-                  <a>
+                <div className="works more mb-4">
+                  <a onClick={() => this.handleOpenModal(value, key)}>
                     <span>+</span>
                     <SVG
                       width="50px"
@@ -210,6 +235,11 @@ class Works extends PureComponent {
             </div>
           );
         })}
+        {this.state.modal && (
+          <ModalPortal>
+            <Modal onClose={this.handleCloseModal} value={this.state.value}/>
+          </ModalPortal>
+        )}{''}
       </div>
     );
   }

@@ -102,6 +102,9 @@
   position: relative
   top: 45px
   a
+    display: block
+    position: relative
+    margin: auto
     span
       font-size: 2rem
       z-index: 1
@@ -117,15 +120,21 @@
       transform: translate(-50%, -50%)
       top: 50%
       polygon
+        transition: fill 0.2s ease-in-out
         stroke: #fff
         stroke-width: 5
         fill: rgba(0,0,0,0.4)
-
+    &:hover
+      cursor: pointer
+      svg
+        polygon
+          fill: rgba(255,77,90,0.4)
 
 #footer
   .logo
     margin: 0 auto 5rem auto
     filter: drop-shadow(rgba(255, 77, 90, 0.7) 0px 0px 30px)
+    
 +media-md
   .contents
     section#main
