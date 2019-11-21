@@ -15,15 +15,39 @@
       position: relative
       width: 80%
       max-width: 800px
-      margin: 40px auto
+      margin: 2.25rem auto
       box-shadow: 0 4px 10px rgba(0,0,0,0.2)
       background: #1e1f26
       border-radius: 0.8rem
       overflow: hidden
+      margin: 0
+      width: 100%
       .header
         background: #2d303a
         .title
           margin-bottom: -10px
+        .link
+          margin-top: 0.3rem
+          a
+            border-radius: 2px
+            background: #1e1f26
+            padding: 0.3rem 0.5rem
+            transition: color 0.2s ease-in-out
+            &:hover
+              color: #ff4d5a
+            i
+              margin-left: 3px  
+        .closeModal
+          color: white
+          right: 0.35rem
+          text-align: center
+          top: 0.35rem
+          font-size: 2.2rem
+          width: 2rem
+          line-height: 2rem
+          transition: color 0.2s ease-in-out
+          &:hover
+            color: #ff4d5a
       .contents
         .textContainer
           background: #2d303a
@@ -61,3 +85,25 @@
     background: rgba(0,0,0,0.7)
     webkit-backdrop-filter: blur(3px)
     backdrop-filter: blur(3px)
+
+
++media-min-sm
+  #Modal 
+    .modal 
+      .modal-container
+        margin: 0
+        width: 100%
+  
+
++media-min-md
+  #Modal 
+    .modal 
+      .modal-container
+        width: 100%
+        margin: 2.25rem auto
+    
++media-min-lg
+  #Modal 
+    .modal 
+      .modal-container
+        margin: 2.25rem auto

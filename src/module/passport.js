@@ -100,7 +100,7 @@ class Passport extends PureComponent {
                 console.log("");
                 return (
                   <div
-                    className="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-5"
+                    className="flex w-full sm:w-full md:w-1/3 lg:w-1/4 xl:w-1/4 p-5"
                     key={city + index}
                     style={{
                       transform: "rotate(" + this.getRandom(-8, 8) + "deg)"

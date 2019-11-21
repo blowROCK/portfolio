@@ -24,7 +24,6 @@ class Works extends PureComponent {
             content:
               "Google blockly를 이용한 블록코딩 개발\nSVG와 Canvas를 이용한 코딩 게임 개발\n블록을 Javascript로 변환하는 번역기 개발\n변환된 코드를 JS 인터프리터를 통해 실행하여\n게임 내에 Animation을 실행하는 게임 개발\ncompile-run를 이용해 실행되어 결과 값이 리턴되는 컴파일러 개발\n컴파일러를 이용한 JAVA, C, Cpp, Python, Javascript용 코딩 게임개발\n회원가입, 비밀번호, 메일링, 진도상황체크 등",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
-            url: "미정",
             imgs: [
               "edu-01.gif",
               "edu-02.gif",
@@ -40,7 +39,7 @@ class Works extends PureComponent {
               "edu-12.png",
               "edu-13.png",
               "edu-14.png",
-              "edu-15.png",
+              "edu-15.gif",
               "edu-16.png",
               "edu-17.png"
             ]
@@ -56,7 +55,7 @@ class Works extends PureComponent {
             content:
               "Google blockly를 이용한 블록코딩 개발\nSVG와 Canvas를 이용한 코딩 게임 개발\nAWS s3를 이용한 클라우드서비스,\n회원가입, 권한 관리, 진도상황체크 등 개발",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
-            url: "code.playcoding.ac",
+            url: "http://code.playcoding.ac/",
             imgs: [
               "code-01.gif",
               "code-02.png",
@@ -80,7 +79,7 @@ class Works extends PureComponent {
             content:
               "다양한 애니메이션, KakaoMap을 이용한 지점 소개\n글작성, 지점 업로드",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
-            url: "playcoding.ac",
+            url: "http://playcoding.ac/",
             imgs: [
               "playcoding-0.gif",
               "playcoding-1.gif",
@@ -103,7 +102,6 @@ class Works extends PureComponent {
             content:
               "모든 회원 관리, 모든 지점 관리, 수업관리,\n슬라이드변경, 업로드 글쓰기 등\n모든 업무 총괄 어드민 페이지",
             role: "웹디자인(50%), 프론트엔드(90%), 백엔드(100%)",
-            url: "-",
             imgs: ["admin-0.gif", "admin-1.gif", "admin-2.png"]
           }
         },
@@ -117,7 +115,6 @@ class Works extends PureComponent {
             content:
               "2016.09 ~ 2016.11\nIonic을 이용한 Hybrid App 개발\n비콘을 통해 실시간으로 사용자가 업체에 방문 정보를 받게 개발\nFireBase를 통해 사용자, 업주간 실시간 채팅 등 개발",
             role: "디자인(100%), 프론트엔드(100%)",
-            url: "-",
             imgs: ["omug-1.png", "omug-2.png", "omug-3.png"]
           }
         },
@@ -130,7 +127,6 @@ class Works extends PureComponent {
               "HTML, CSS, Javascript, Jqueary, PHP, gulp, git, npm, bootstrap, slick, 반응형, 웹표준",
             content: "2017.03 ~ 2017.04\nWordPress 기반 홈페이지",
             role: "디자인(100%), 프론트엔드(100%)",
-            url: "-",
             imgs: ["inno-1.png", "inno-2.png", "inno-3.png", "inno-4.png"]
           }
         }

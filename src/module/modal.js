@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/require-render-return */
 import "./modal.sass";
 import React, { Component } from "react";
@@ -25,13 +26,19 @@ class Modal extends Component {
       <div id="Modal" className="fixed z-10 text-white">
         <div className="modal fixed">
           <div className="modal-container z-20">
-            <div className="header py-4 pl-6">
+            <div className="header relative py-4 pl-6">
               <div className="title text-xl">
                 {this.value.title}
               </div>
               <div className="subTitle text-gray-500 text-lg">
                 {this.value.subTitle}
               </div>
+                {
+                  this.value.url ? 
+                  <div className="link"><a href={this.value.url} target="_blank" rel="noopener noreferrer"><i className="fas fa-window-restore"></i>LINK</a></div>
+                    : ''
+                }
+              <div className="closeModal absolute cursor-pointer" onClick={this.onClose}><i className="fas fa-times"></i></div>
             </div>
             <div className="contents">
               <div className="sliderContainer py-8">
@@ -44,7 +51,8 @@ class Modal extends Component {
                   showFullscreenButton={false}
                   showPlayButton={false}
                   showBullets={false}
-                  thumbnailPosition='right'
+                  thumbnailPosition='bottom'
+                  lazyLoad={true}
                 />
               </div>
               <div className="textContainer p-5">
@@ -56,7 +64,7 @@ class Modal extends Component {
                   </ul>
                 </div>
                 <div className="text"><i className="fas fa-caret-right"></i><p>{this.value.content}</p></div>
-                <div className="role"><p><i class="fas fa-user-tag"></i>{this.value.role}</p></div>
+                <div className="role"><p><i className="fas fa-user-tag"></i>{this.value.role}</p></div>
               </div>
             </div>
           </div>

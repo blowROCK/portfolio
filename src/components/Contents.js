@@ -113,7 +113,7 @@ class Contents extends PureComponent {
             </div>
             <div className="content mt-16 max-w-xl mx-auto">
               <p className="text-white text-center text-xl text-shadow-1">
-                프론트엔드는 시작하기는 쉽지만 마스터 하기에는 너무 광대하고 항상 새로워 마치 밤 하늘에 떠있는 우주 같습니다. 저는 미지의 세계를 탐험하는 우주인이 되어 새로운 것을 배우고 만드는 개발하고 있습니다.
+              프론트엔드는 시작하기는 쉽지만 마스터하기에는 너무 광대하고 항상 새로워 마치 밤 하늘에 떠 있는 우주 같습니다. 저는 미지의 세계를 탐험하는 우주인이 되어 새로운 것을 배우고 만드는 개발을 하고 있습니다.
               </p>
             </div>
           </article>
@@ -136,10 +136,12 @@ class Contents extends PureComponent {
             <Works></Works>
           </article>
         </section>
-        <section id="footer" className={"flex relative max-w-6xl mx-auto mb-32 mt-32 " + this.isOnScreen('works')}>
+        <section id="footer" className={"flex relative max-w-6xl mx-auto mt-32 mb-4 pb-32 " + this.isOnScreen('works')}>
           <article className="w-full mt-36 flex-wrap pt-40 text-center text-white">
             <img className="logo h-auto w-20 sm:w-20 md:w-32 load_opa" src={ logo } alt="logo"/>
-            <p className="text-4xl mb-16">재미있게 보셨으면 좋아요 와 구ㄷ.. 아니<br/>저의 블로그와 깃허브도 구경하세요!</p>
+            <p className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl mb-16">
+              재미있게 보셨으면 좋아요 와 구ㄷ.. 아니<br/>자세한 내용은 경력기술서PDF와 포트폴리오PDF를 참고해주세요!<br/>그리고 저의 블로그와 깃허브도 구경하세요!
+            </p>
             <ul className="flex flex-wrap justify-center  mb-20">
               <li className="social more mr-20">
                 <a href="http://error404.co.kr/" target="_blank" rel="noopener noreferrer">
@@ -165,12 +167,13 @@ class Contents extends PureComponent {
             <div className="mail text-white text-2xl">
               <i className="far fa-envelope mr-6"></i> dex@kakao.com
             </div>
-            <div className="">© 2019 parksoobong . All rights reserved</div>
+            
           </article>
           {/* <div className="background">
             <img className="absolute" scr={require("./../assets/img/galaxy_1.png")} alt="galaxy"></img>
             <img className="absolute" scr={require("./../assets/img/galaxy_2.png")} alt="galaxy"></img>
           </div> */}
+          <div className="copyright">© 2019 parksoobong . All rights reserved</div>
         </section>
       </div>
       
