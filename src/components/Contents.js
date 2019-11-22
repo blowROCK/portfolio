@@ -23,6 +23,7 @@ class Contents extends PureComponent {
     }
   }
   componentDidMount(){
+    console.log("TCL: Contents -> componentDidMount -> this.state.loaded", this.state.loaded)
     window.addEventListener('scroll', this.onScroll);
   }
   onScroll(e){
@@ -137,10 +138,10 @@ class Contents extends PureComponent {
           </article>
         </section>
         <section id="footer" className={"flex relative max-w-6xl mx-auto mt-32 mb-4 pb-32 " + this.isOnScreen('works')}>
-          <article className="w-full mt-36 flex-wrap pt-40 text-center text-white">
+          <article className="w-full mt-36 flex-wrap pt-40 pb-8 text-center text-white">
             <img className="logo h-auto w-20 sm:w-20 md:w-32 load_opa" src={ logo } alt="logo"/>
-            <p className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl mb-16">
-              재미있게 보셨으면 좋아요 와 구ㄷ.. 아니<br/>자세한 내용은 경력기술서PDF와 포트폴리오PDF를 참고해주세요!<br/>그리고 저의 블로그와 깃허브도 구경하세요!
+            <p className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl mb-16">
+              재미있게 보셨으면 좋아요 와 구ㄷ.. 아니<br/>자세한 내용은 경력기술서와 포트폴리오를 참고해주세요!<br/>그리고 저의 블로그와 깃허브도 구경하세요!
             </p>
             <ul className="flex flex-wrap justify-center  mb-20">
               <li className="social more mr-20">
@@ -164,7 +165,7 @@ class Contents extends PureComponent {
                 </a>
               </li>
             </ul>
-            <div className="mail text-white text-2xl">
+            <div className="mail text-white text-2xl font-bold">
               <i className="far fa-envelope mr-6"></i> dex@kakao.com
             </div>
             

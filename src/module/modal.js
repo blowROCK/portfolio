@@ -30,7 +30,7 @@ class Modal extends Component {
               <div className="title text-xl">
                 {this.value.title}
               </div>
-              <div className="subTitle text-gray-500 text-lg">
+              <div className="subTitle text-gray-500 text-base">
                 {this.value.subTitle}
               </div>
                 {
@@ -41,7 +41,7 @@ class Modal extends Component {
               <div className="closeModal absolute cursor-pointer" onClick={this.onClose}><i className="fas fa-times"></i></div>
             </div>
             <div className="contents">
-              <div className="sliderContainer py-8">
+              <div className="sliderContainer">
                 <ImageGallery 
                   items={this.imgs}
                   infinite={true}

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./App.sass";
 import Contents from "../components/Contents";
 import Space from './../components/Space';
+import Spinner from './../components/Spinner';
 
 // import { BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -22,10 +23,9 @@ class App extends Component {
   }
   render() {
     return (
-      // <Main>
-
-      // </Main>
       <div className="App">
+        <Spinner loaded={this.state.loaded}
+          loadHandler={this.loadHandler}></Spinner>
         <Space
           loaded={this.state.loaded}
           loadHandler={this.loadHandler}

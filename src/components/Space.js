@@ -7,8 +7,6 @@ import mask_L from "./../assets/img/mask_L.png";
 import mask_C from "./../assets/img/mask_C.png";
 
 import milkyway2 from "./../assets/img/milky_way2.jpg";
-import galaxy_1 from "./../assets/img/galaxy_1.png";
-import galaxy_2 from "./../assets/img/galaxy_2.png";
 
 import "./Space.sass";
 
@@ -35,9 +33,7 @@ class Space extends Component {
       earth_B : [mask_B, earth_B],
       earth_L : [mask_L, earth_L],
       earth_C : [mask_C, earth_C],
-      milkyway : milkyway2,
-      galaxy_1 : galaxy_1,
-      galaxy_2 : galaxy_2
+      milkyway : milkyway2
     };
     this.state = {
       canvas_width: 1500,
@@ -113,12 +109,11 @@ class Space extends Component {
       return this.drawShading()
     }).then(()=>{
       console.log("로딩 끝");
+      this.loadHandler(true);
       setTimeout(()=>{
-        this.loadHandler(true);
+        console.log("로딩 애니메이션 시작");
         this.startAnimate();
-        console.log("TCL: Space -> setupCanvas -> this.state.loaded", this.state.loaded)
-        console.log("TCL: Space -> setupCanvas -> this.props.loaded", this.props.loaded)
-      },200)
+      }, 500)
     })
   }
   drawArc(ctx, x, y, size){

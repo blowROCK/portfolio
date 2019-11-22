@@ -17,7 +17,7 @@ class Works extends PureComponent {
         {
           edu: {
             key: 'edu',
-            subTitle: "CODING EDUCATION",
+            subTitle: "Coding Education",
             title: "코딩 강좌 사이트",
             skill:
               "gulp, babel, npm, Pug, SASS, AngularJS, NodeJS, AWS, MongoDB",
@@ -73,7 +73,7 @@ class Works extends PureComponent {
           play: {
             key: 'play',
             title: "프렌차이즈 회사 홈페이지",
-            subTitle: "franchise site",
+            subTitle: "Franchise Site",
             skill:
               "gulp, babel, npm, Pug, SASS, AngularJS, Jquery, NodeJS, AWS, MongoDB, 반응형, 웹표준",
             content:
@@ -96,7 +96,7 @@ class Works extends PureComponent {
           admin: {
             key: 'admin',
             title: "코딩 사이트, 회사 사이트\n통합 어드민",
-            subTitle: "ADMIN PAGE",
+            subTitle: "Admin Page",
             skill:
               "gulp, babel, npm, Pug, SASS, AngularJS, Jquery, NodeJS, AWS, MongoDB, 반응형, 웹표준",
             content:
@@ -122,7 +122,7 @@ class Works extends PureComponent {
           inno: {
             key: 'inno',
             title: "회사 홈페이지",
-            subTitle: "Company homepage",
+            subTitle: "Company Homepage",
             skill:
               "HTML, CSS, Javascript, Jqueary, PHP, gulp, git, npm, bootstrap, slick, 반응형, 웹표준",
             content: "2017.03 ~ 2017.04\nWordPress 기반 홈페이지",
