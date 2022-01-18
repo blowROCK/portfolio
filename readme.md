@@ -1,6 +1,8 @@
 # 백수 기념 포트 폴리오 제작~
 - 으앙 내가 백수라니 >.<
 
+[가서 보자~](https://blowrock.github.io/)
+
 - ** 활용 기술 **
     - React, JSX, JavaScript ES6, SASS
     - 스토리보드 디자인
