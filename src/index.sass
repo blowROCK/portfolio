@@ -2,6 +2,7 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css)
 
 html, body
+  overflow: overlay
   scroll-behavior: smooth
   font-family: 'NanumSquare', 'Black Han Sans', sans-serif
   
@@ -25,3 +26,19 @@ html, body
 
 .text-106xl
   font-size: 1.06rem
+
+body::-webkit-scrollbar 
+  background-color: rgba(0, 0, 0, 0)
+  width: 8px
+
+body::-webkit-scrollbar-track
+  background-color: rgba(0, 0, 0, 0)
+
+
+/* scrollbar itself */
+body::-webkit-scrollbar-thumb 
+  background-color: #babac0
+  border-radius: 16px
+  
+body::-webkit-scrollbar-button
+  display:none

@@ -9,8 +9,18 @@ class Passport extends PureComponent {
       stampType: ["double", "dashed", "round", "ticket", "tomb"],
       citys: [
         {
+          Script: [
+            ["jvascript", "b fa-js-square"],
+            ["ES6", "s fa-code"],
+            ["vue", "b fa-vuejs"],
+            ["nuxt", "s fa-chevron-circle-right"],
+            ["angularJS", "b fa-angular"],
+            ["React", "b fa-react"]
+          ]
+        },
+        {
           Markup: [
-            ["HTML", "b fa-html5"],
+            ["HTML5", "b fa-html5"],
             ["Canvas", "s fa-pencil-ruler"],
             ["SVG", "s fa-draw-polygon"],
             ["PUG", "s fa-dog"]
@@ -19,24 +29,17 @@ class Passport extends PureComponent {
         {
           Style: [
             ["CSS", "b fa-css3-alt"],
-            ["SASS", "b fa-sass"]
-          ]
-        },
-        {
-          Script: [
-            ["jvascript", "b fa-js-square"],
-            ["ES6", "s fa-code"],
-            ["jquery", "s fa-file-invoice-dollar"],
-            ["angularJS", "b fa-angular"],
-            ["React", "b fa-react"]
+            ["SASS", "b fa-sass"],
+            ["SCSS", "b fa-sass"]
           ]
         },
         { App: [["Ionic", "s fa-mobile"]] },
         {
           Package: [
+            ["webpack", "s fa-box-open"],
             ["npm", "b fa-npm"],
             ["gulp", "b fa-gulp"],
-            ["babel", "s fa-dumbbell"],
+            ["yarn", "s fa-yarn"],
             ["Jekyll", "s fa-flask"]
           ]
         },

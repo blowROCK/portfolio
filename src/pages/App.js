@@ -16,7 +16,6 @@ class App extends Component {
     };
   }
   loadHandler(value) {
-    console.log("스테이트 값이 변함 : ", value);
     this.setState({
       loaded: value
     });

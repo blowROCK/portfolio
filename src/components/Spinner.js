@@ -25,8 +25,6 @@ class Spinner extends Component {
     this.fade(element, 400);
   }
   fade(element, duration) {
-    console.log("페이드 애니메이션 시작");
-    
     let op = 1;
     let time = this.state.tick/this.state.sec * 1000;
     let minusValue = 1 / (duration/this.state.tick);
@@ -45,7 +43,10 @@ class Spinner extends Component {
   render() {
     return (
       <div id="spinner" className={"spinner "+ this.isLoaded()}>
-        <img src={require("./../assets/img/spinner.gif")}></img>
+        <div className="center">
+          <img src={require("./../assets/img/spinner.gif")}></img>
+          <div>GitPage가 느릴 수 있습니다.. 조금만 기다려주세요!</div>
+        </div>
       </div>
     );
   }

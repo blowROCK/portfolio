@@ -12,6 +12,7 @@
   
 .contents
   section:not(:first-child)
+    padding: 0 28px
     &::before
       content: ''
       width: 2px
@@ -148,6 +149,8 @@
         font-size: 3.2rem
         letter-spacing: 0.5rem
         margin-right: -0.5rem
+    section:not(#main)
+      padding: 0 24px
         
 +media-xs
   .contents
@@ -156,3 +159,5 @@
         font-size: 2.5rem
         letter-spacing: 0.3rem
         margin-right: -0.3rem
+    section:not(#main)
+      padding: 0 20px

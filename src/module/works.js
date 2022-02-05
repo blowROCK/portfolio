@@ -12,15 +12,83 @@ class Works extends PureComponent {
     super(props);
     this.onScroll = this.onScroll.bind(this);
     this.state = {
-      keys: ["edu", "code", "play", "admin", "omug", "inno"],
+      keys: ["saas", "urban", "team", "edu", "code", "play", "admin", "omug", "inno"],
       imgs: [
+        {
+          saas: {
+            key: 'saas',
+            subTitle: "urbanbase (b2b)",
+            title: "3D 시뮬레이터, 파노라마",
+            skill: "vue, nuxt, webpack, sass, node, aws, axios, webGL, SDK",
+            content:
+              "어반베이스의 b2b 사이트입니다.\n기본적으로 한국어, 영문, 일본어 다국어 지원중이며, 3D스타일링을 랜더링하여 파노라마SDK를 통해 파노라마를 에디팅하고 뷰잉할 수 있는 서비스를 제공중입니다.\n파노라마SDK, 에딧, 뷰어 개발 및 어드민, 견적서, 전반적인 UI를 개발하였습니다.",
+            role: "프론트엔드 3인 개발",
+            imgs: [
+              "sass_01.png",
+              "sass_02.png",
+              "sass_03.png",
+              "sass_04.png",
+              "sass_05.png",
+              "sass_06.png",
+              "sass_07.png",
+              "sass_09.png"
+            ]
+          }
+        },
+        {
+          urban: {
+            key: 'urban',
+            subTitle: "urbanbase (b2c)",
+            title: "3D 시뮬레이터, 인테리어",
+            skill: "vue, nuxt, webpack, sass, node, aws, axios, webGL, SDK",
+            content:
+              "unity를 이용한 3D인테리어 서비스 사이트입니다.\nvue, nuxt를 이용하여 대형 서비스를 개발하였습니다.\n대부분의 UI/UX를 담당하였고 지금은 b2c 프로젝트를 책임지고 있으며, 대규모 업데이트를 진행중입니다.\n어드민도 포함되어있습니다.",
+            role: "프론트엔드 3인 개발",
+            url: "https://urbanbase.com",
+            imgs: [
+              "urban_01.png",
+              "urban_02.png",
+              "urban_03.png",
+              "urban_04.png",
+              "urban_05.png",
+              "urban_06.png",
+              "urban_07.png",
+              "urban_08.png",
+              "urban_09.png",
+              "urban_10.png",
+              "urban_11.png",
+              "urban_12.png",
+              "urban_13.png",
+              "urban_14.png"
+            ]
+          }
+        },
+        {
+          team: {
+            key: 'team',
+            subTitle: "team urbanbase",
+            title: "회사 소개 사이트",
+            skill: "vue, nuxt, webpack, sass, node, aws, axios, panoramaSDK",
+            content:
+              "어반베이스 회사 소개 사이트 입니다.\n각종 소개 영상, 파노라마 뷰어, 구글 지도 지사별 위치 등, 기술 등을 소개합니다.\n빠르고 가볍게 로딩될 수 있도록 최대한 가볍게 제작하였습니다.",
+            role: "프론트엔드 2인 개발",
+            url: "https://team.urbanbase.com",
+            imgs: [
+              "team_0.png",
+              "team_1.png",
+              "team_2.png",
+              "team_3.png",
+              "team_4.png",
+              "team_5.png",
+            ]
+          }
+        },
         {
           edu: {
             key: 'edu',
             subTitle: "Coding Education",
             title: "코딩 강좌 사이트",
-            skill:
-              "gulp, babel, npm, Pug, SASS, AngularJS, NodeJS, AWS, MongoDB",
+            skill: "gulp, babel, npm, Pug, SASS, AngularJS, NodeJS, AWS, MongoDB",
             content:
               "Google blockly를 이용한 블록코딩 개발\nSVG와 Canvas를 이용한 코딩 게임 개발\n블록을 Javascript로 변환하는 번역기 개발\n변환된 코드를 JS 인터프리터를 통해 실행하여\n게임 내에 Animation을 실행하는 게임 개발\ncompile-run를 이용해 실행되어 결과 값이 리턴되는 컴파일러 개발\n컴파일러를 이용한 JAVA, C, Cpp, Python, Javascript용 코딩 게임개발\n회원가입, 비밀번호, 메일링, 진도상황체크 등",
             role: "웹디자인, 프론트엔드, 백엔드 등 모든 개발에 100% 참여",
@@ -165,6 +233,7 @@ class Works extends PureComponent {
       value: value[key]
     });
     document.body.classList.add("overflow-hidden");
+    document.querySelector('html').classList.add('overflow-hidden');
   };
   handleCloseModal = () => {
     this.setState({
@@ -172,6 +241,7 @@ class Works extends PureComponent {
       value: ''
     });
     document.body.classList.remove('overflow-hidden');
+    document.querySelector('html').classList.remove('overflow-hidden');
   };
   render() {
     return (
@@ -193,10 +263,7 @@ class Works extends PureComponent {
                     <img
                       id={"img_" + key + "_" + index}
                       key={key + "-" + index}
-                      src={require("./../assets/img/screen/" +
-                        key +
-                        "/" +
-                        value)}
+                      src={require("./../assets/img/screen/" + key + "/" + value)}
                     ></img>
                   );
                 })}
